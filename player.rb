@@ -1,8 +1,12 @@
 class Player
   def initialize(window)
     @image = Gosu::Image.new(window, "media/player_1.png", false)
-    @x     = @y = @vel_x = @vel_y = @angle = 0.0
+    @x = @y = @vel_x = @vel_y = @angle = 0.0
     @score = 0
+  end
+
+  def warp(x, y)
+    @x, @y = x, y
   end
 
   def turn_left
