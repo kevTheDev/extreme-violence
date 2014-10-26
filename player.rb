@@ -2,6 +2,8 @@ class Player
   
   VELOCITY = 3
   
+  attr_reader :x, :y
+  
   def initialize(window)
     @image = Gosu::Image.new(window, "media/player_1.png", false)
     @x     = 0.0
