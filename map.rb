@@ -1,13 +1,13 @@
 class Map
   
-  attr_reader :window, :width, :height
+  attr_reader :window, :width, :height, :blocks
   
   def initialize(window, width, height)
     @window     = window
     @width      = width
     @height     = height
-    @block      = Block.new(window, 50, 50, 20, 20)
     @background = Gosu::Color.rgb(186, 186, 186)
+    @blocks     = ::BlocksGenerator.new(window, width, height).generate
   end
   
   def draw
@@ -15,8 +15,10 @@ class Map
     draw_blocks
   end
   
+  private
+  
   def draw_blocks
-    @block.draw
+    blocks.each { |block| block.draw }
   end
   
   def draw_background
