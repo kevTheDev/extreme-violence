@@ -4,14 +4,29 @@ require_relative 'block'
 require_relative 'map'
 
 class GameWindow < Gosu::Window
+  
+  VIEWPORT_SIZE_X = 640
+  VIEWPORT_SIZE_Y = 480
+  
+  WORLD_SIZE_X = 1280
+  WORLD_SIZE_Y = 960
+  
   def initialize
-    super(1280, 960, false)
+    super(VIEWPORT_SIZE_X, VIEWPORT_SIZE_Y, false)
+    
+    offsetMaxX = WORLD_SIZE_X - VIEWPORT_SIZE_X
+    offsetMaxY = WORLD_SIZE_Y - VIEWPORT_SIZE_Y
+    offsetMinX = 0
+    offsetMinY = 0
+    
     self.caption = "Extreme Violence"
     
     @player = Player.new(self)
     @player.warp(320, 240)
     
-    @map = Map.new(self)
+    @map = Map.new(self, WORLD_SIZE_X, WORLD_SIZE_Y)
+    
+    @camera_x = @camera_y = 0
   end
 
   def update
@@ -27,8 +42,12 @@ class GameWindow < Gosu::Window
     end
     
     # Scrolling follows player
-    @camera_x = [[@player.x - 320, 0].max, @map.width * 50 - 640].min
-    @camera_y = [[@player.y - 240, 0].max, @map.height * 50 - 480].min
+    # @camera_x = [[@player.x - 320, 0].max, @map.width * 50 - 640].min
+    # @camera_y = [[@player.y - 240, 0].max, @map.height * 50 - 480].min
+    
+    
+    @camera_x = @player.x - VIEWPORT_SIZE_X / 2
+    @camera_y = @player.y - VIEWPORT_SIZE_Y / 2
   end
 
   def draw

@@ -1,22 +1,13 @@
 class Map
   
-  WIDTH  = 2560
-  HEIGHT = 1920
+  attr_reader :window, :width, :height
   
-  attr_reader :window
-  
-  def initialize(window)
+  def initialize(window, width, height)
     @window     = window
+    @width      = width
+    @height     = height
     @block      = Block.new(window, 50, 50, 20, 20)
     @background = Gosu::Color.rgb(186, 186, 186)
-  end
-  
-  def width
-    WIDTH
-  end
-  
-  def height
-    HEIGHT
   end
   
   def draw
