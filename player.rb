@@ -1,6 +1,6 @@
 class Player
   
-  VELOCITY = 3
+  VELOCITY = 6
   
   attr_reader :x, :y
   

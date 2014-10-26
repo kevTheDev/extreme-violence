@@ -17,7 +17,21 @@ class BlocksGenerator
   
   def generate_blocks
     blocks = []
-    blocks << Block.new(window, 50, 50, 20, 20)
+    
+    10.times do
+      
+      #x = rand(width)
+      #y = rand(height)
+      x = rand(10)
+      y = rand(10)
+      
+      block_width = 10#rand(60)
+      
+      block_height = 10#rand(35)
+    
+      blocks << Block.new(window, x, y, block_width, block_height)
+    end
+    
     blocks
   end
   
