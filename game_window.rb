@@ -1,15 +1,18 @@
 require 'gosu'
 require_relative 'player'
+require_relative 'block'
 
 class GameWindow < Gosu::Window
   def initialize
-    super(640, 480, false)
+    super(1280, 960, false)
     self.caption = "Extreme Violence"
     
     @background = Gosu::Color.rgb(186, 186, 186)
     
     @player = Player.new(self)
     @player.warp(320, 240)
+    
+    @block = Block.new(self, 50, 50, 20, 20)
   end
 
   def update
@@ -28,6 +31,7 @@ class GameWindow < Gosu::Window
   def draw
     draw_background
     draw_player
+    draw_block
   end
   
   def draw_background
@@ -40,6 +44,10 @@ class GameWindow < Gosu::Window
   
   def draw_player
     @player.draw
+  end
+  
+  def draw_block
+    @block.draw
   end
 end
 
