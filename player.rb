@@ -1,35 +1,33 @@
 class Player
+  
+  VELOCITY = 3
+  
   def initialize(window)
     @image = Gosu::Image.new(window, "media/player_1.png", false)
-    @x = @y = @vel_x = @vel_y = @angle = 0.0
+    @x     = 0.0
+    @y     = 0.0
+    @angle = 0.0
     @score = 0
   end
 
   def warp(x, y)
     @x, @y = x, y
   end
-
-  def turn_left
-    @angle -= 4.5
+  
+  def walk_left
+    @x -= VELOCITY
   end
-
-  def turn_right
-    @angle += 4.5
+  
+  def walk_right
+    @x += VELOCITY
   end
-
-  def accelerate
-    @vel_x += Gosu::offset_x(@angle, 0.5)
-    @vel_y += Gosu::offset_y(@angle, 0.5)
+  
+  def walk_up
+    @y -= VELOCITY
   end
-
-  def move
-    @x += @vel_x
-    @y += @vel_y
-    @x %= 640
-    @y %= 480
-
-    @vel_x *= 0.95
-    @vel_y *= 0.95
+  
+  def walk_down
+    @y += VELOCITY
   end
 
   def draw

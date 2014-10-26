@@ -13,16 +13,16 @@ class GameWindow < Gosu::Window
   end
 
   def update
-    if button_down? Gosu::KbLeft or button_down? Gosu::GpLeft then
-      @player.turn_left
+    
+    if button_down?(Gosu::KbLeft) || button_down?(Gosu::GpLeft)
+      @player.walk_left
+    elsif button_down?(Gosu::KbRight) || button_down?(Gosu::GpRight)
+      @player.walk_right
+    elsif button_down?(Gosu::KbUp) || button_down?(Gosu::GpButton0)
+      @player.walk_up
+    elsif button_down?(Gosu::KbDown)
+      @player.walk_down
     end
-    if button_down? Gosu::KbRight or button_down? Gosu::GpRight then
-      @player.turn_right
-    end
-    if button_down? Gosu::KbUp or button_down? Gosu::GpButton0 then
-      @player.accelerate
-    end
-    @player.move
   end
 
   def draw
