@@ -1,17 +1,18 @@
 class Tile
   
-  attr_reader :window, :x, :y, :width, :height, :x2, :y2, :colour
+  attr_reader :window, :x, :y, :width, :height, :x2, :y2, :colour, :tile_index
   
-  def initialize(window, x, y, width, height)
-    @window = window
-    @x      = x
-    @y      = y
-    @width  = width
-    @height = height
-    @x2     = x + width
-    @y2     = y + height
+  def initialize(window, x, y, width, height, tile_index)
+    @window     = window
+    @x          = x
+    @y          = y
+    @width      = width
+    @height     = height
+    @x2         = x + width
+    @y2         = y + height
+    @tile_index = tile_index
     
-    @colour = Gosu::Color.rgb(255, 255, 255)
+    @colour     = Gosu::Color.rgb(186, 186, 186)
   end
   
   def draw

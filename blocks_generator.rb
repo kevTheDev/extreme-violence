@@ -19,9 +19,6 @@ class BlocksGenerator
     blocks = []
     
     10.times do
-      
-      #x = rand(width)
-      #y = rand(height)
       x = rand(width)
       y = rand(height)
       
