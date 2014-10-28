@@ -22,12 +22,12 @@ class BlocksGenerator
       
       #x = rand(width)
       #y = rand(height)
-      x = rand(10)
-      y = rand(10)
+      x = rand(width)
+      y = rand(height)
       
-      block_width = 10#rand(60)
+      block_width = rand(150)
       
-      block_height = 10#rand(35)
+      block_height = rand(200)
     
       blocks << Block.new(window, x, y, block_width, block_height)
     end
