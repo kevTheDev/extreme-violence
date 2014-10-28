@@ -1,8 +1,10 @@
 require 'gosu'
 require_relative 'player'
+require_relative 'tile'
 require_relative 'block'
 require_relative 'blocks_generator'
 require_relative 'map'
+
 
 class GameWindow < Gosu::Window
   
