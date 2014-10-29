@@ -18,7 +18,7 @@ class TilesGenerator
   end
 
   def tile_height
-    @world_height ||= (world_height / 80)
+    @tile_height ||= (world_height / 80)
   end
 
   def x_number_of_tiles
@@ -33,14 +33,20 @@ class TilesGenerator
   private
   
   def generate_tiles
+    puts "World height: #{world_height}"
+    puts "Tile height: #{tile_height}"
+    
     tiles      = []
     tile_index = 0
+    
+    puts "y_number_of_tiles: #{y_number_of_tiles}"
+    puts "x_number_of_tiles: #{x_number_of_tiles}"
     
     y_number_of_tiles.times do |row|
       x_number_of_tiles.times do |column|
         tile_index += 1
         
-        x = (row * tile_width)
+        x = (column * tile_width)
         y = (row * tile_height)
         
         

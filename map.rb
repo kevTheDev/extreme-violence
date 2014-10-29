@@ -24,7 +24,10 @@ class Map
   end
   
   def draw_tiles
-    tiles.each { |tile| tile.draw }
+    tiles.each do |tile|
+      #puts "tile: #{tile.tile_index} #{tile.x},#{tile.y}"
+      tile.draw
+    end
   end
   
   def draw_blocks
