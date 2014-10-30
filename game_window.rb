@@ -4,6 +4,7 @@ require_relative 'tile'
 require_relative 'block'
 require_relative 'tiles_generator'
 require_relative 'blocks_generator'
+require_relative 'dimensions'
 require_relative 'map'
 
 
