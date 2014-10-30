@@ -1,12 +1,11 @@
 class BlocksGenerator
   
-  attr_reader :window, :width, :height
+  attr_reader :window, :dimensions
   
   # generates a bunch of blocks to be rendered in the window
-  def initialize(window, width, height)
-    @window = window
-    @width  = width
-    @height = height
+  def initialize(window, dimensions)
+    @window     = window
+    @dimensions = dimensions
   end
   
   def generate
@@ -19,13 +18,19 @@ class BlocksGenerator
     blocks = []
     blocks_index = 0
     
+    world_width  = dimensions.world_width
+    world_height = dimensions.world_height
+    
+    tile_width  = dimensions.tile_width
+    tile_height = dimensions.tile_height
+    
     10.times do
       blocks_index += 1
-      x = rand(width)
-      y = rand(height)
+      x = rand(world_width)
+      y = rand(world_height)
       
-      block_width  = rand(150)
-      block_height = rand(200)
+      block_width  = rand(3) * tile_width
+      block_height = rand(3) * tile_height
     
       blocks << Block.new(window, x, y, block_width, block_height, blocks_index)
     end

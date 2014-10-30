@@ -16,7 +16,7 @@ class Map
   private
   
   def blocks
-    @blocks ||= ::BlocksGenerator.new(window, width, height).generate
+    @blocks ||= ::BlocksGenerator.new(window, dimensions).generate
   end
   
   def tiles
