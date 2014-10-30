@@ -24,8 +24,7 @@ class BlocksGenerator
       x = rand(width)
       y = rand(height)
       
-      block_width = rand(150)
-      
+      block_width  = rand(150)
       block_height = rand(200)
     
       blocks << Block.new(window, x, y, block_width, block_height, blocks_index)

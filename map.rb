@@ -20,7 +20,11 @@ class Map
   end
   
   def tiles
-    @tiles ||= ::TilesGenerator.new(window, width, height).tiles
+    @tiles ||= ::TilesGenerator.new(window, dimensions).tiles
+  end
+  
+  def dimensions
+    @dimensions ||= Dimensions.new(width, height)
   end
   
   def draw_tiles
