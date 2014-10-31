@@ -6,6 +6,7 @@ require_relative 'tiles_generator'
 require_relative 'blocks_generator'
 require_relative 'dimensions'
 require_relative 'map'
+require_relative 'blank_map'
 
 
 class MapEditor < Gosu::Window

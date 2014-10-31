@@ -1,12 +1,12 @@
 class BlankMap
   
-  attr_reader :window, :width, :height
+  attr_reader :window, :map_width, :map_height, :tiles
   
-  def initialize(window, width, height)
+  def initialize(window, map_width, map_height)
     @window     = window
-    @width      = width
-    @height     = height
-    @tiles = []
+    @map_width  = map_width
+    @map_height = map_height
+    @tiles      = ::TilesGenerator.new(window, dimensions).tiles
   end
   
   def draw
@@ -16,7 +16,7 @@ class BlankMap
   private
   
   def dimensions
-    @dimensions ||= Dimensions.new(width, height)
+    @dimensions ||= Dimensions.new(map_width, map_height)
   end
   
   def draw_tiles
