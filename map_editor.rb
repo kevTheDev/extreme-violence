@@ -33,8 +33,13 @@ class MapEditor < Gosu::Window
     @player.warp(320, 240)
     
     @camera_x = @camera_y = 0
+    
+    @dimensions = Dimensions.new(WORLD_SIZE_X, WORLD_SIZE_Y)
+    @palette    = Palette.new(@dimensions)
   end
   
+  # TODO - on mouse click on palette select brush
+  # TODO - on mouse click on map change tile to brush content
   def update
     
     if button_down?(Gosu::KbLeft) || button_down?(Gosu::GpLeft)
@@ -51,10 +56,12 @@ class MapEditor < Gosu::Window
     @camera_y = @player.y - VIEWPORT_SIZE_Y / 2
   end
 
+  # TODO - draw palette at bottom
   def draw
     translate(-@camera_x, -@camera_y) do
       @map.draw
       @player.draw
+      @palette.draw
     end
   end
   
