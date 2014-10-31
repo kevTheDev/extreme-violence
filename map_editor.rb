@@ -8,7 +8,7 @@ require_relative 'dimensions'
 require_relative 'map'
 
 
-class GameWindow < Gosu::Window
+class MapEditor < Gosu::Window
   
   VIEWPORT_SIZE_X = 640
   VIEWPORT_SIZE_Y = 480
@@ -24,16 +24,16 @@ class GameWindow < Gosu::Window
     offsetMinX = 0
     offsetMinY = 0
     
-    self.caption = "Extreme Violence"
+    self.caption = "Extreme Violence - Map Editor"
+    
+    @map = BlankMap.new(self, WORLD_SIZE_X, WORLD_SIZE_Y)
     
     @player = Player.new(self)
     @player.warp(320, 240)
     
-    @map = Map.new(self, WORLD_SIZE_X, WORLD_SIZE_Y)
-    
     @camera_x = @camera_y = 0
   end
-
+  
   def update
     
     if button_down?(Gosu::KbLeft) || button_down?(Gosu::GpLeft)
@@ -57,9 +57,7 @@ class GameWindow < Gosu::Window
     end
   end
   
-  
-  
 end
 
-window = GameWindow.new
+window = MapEditor.new
 window.show

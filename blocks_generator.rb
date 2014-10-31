@@ -29,8 +29,8 @@ class BlocksGenerator
       x = rand(world_width)
       y = rand(world_height)
       
-      block_width  = rand(3) * tile_width
-      block_height = rand(3) * tile_height
+      block_width  = rand(20) * tile_width
+      block_height = rand(30) * tile_height
     
       blocks << Block.new(window, x, y, block_width, block_height, blocks_index)
     end
