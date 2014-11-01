@@ -7,6 +7,7 @@ require_relative 'blocks_generator'
 require_relative 'dimensions'
 require_relative 'map'
 require_relative 'blank_map'
+require_relative 'palette'
 
 
 class MapEditor < Gosu::Window
@@ -35,7 +36,7 @@ class MapEditor < Gosu::Window
     @camera_x = @camera_y = 0
     
     @dimensions = Dimensions.new(WORLD_SIZE_X, WORLD_SIZE_Y)
-    @palette    = Palette.new(@dimensions)
+    @palette    = Palette.new(self, @dimensions)
   end
   
   # TODO - on mouse click on palette select brush
